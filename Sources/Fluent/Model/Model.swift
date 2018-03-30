@@ -6,7 +6,7 @@ import CodableKit
 /// Fluent database models. These types can be fetched
 /// from a database connection using a query.
 ///
-/// Types conforming to this protocol provide the basis
+/// Types conforming to this protocol provide the basis for
 /// fetching and saving data to/from Fluent.
 public protocol Model: AnyModel, Reflectable {
     /// The type of database this model can be queried on.
@@ -94,7 +94,7 @@ extension Model {
         return pluralName
     }
 
-    /// Seee Model.willCreate()
+    /// See Model.willCreate()
     public func willCreate(on connection: Database.Connection) throws -> Future<Self> {
         return Future.map(on: connection) { self }
     }
